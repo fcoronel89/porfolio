@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
@@ -8,9 +8,32 @@ import { logo, menu, close, iconGithub, iconLinkedin } from "../assets";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+
+  const [scrollNav, setScrollNav] = useState(false);
+
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true);
+    } else {
+      setScrollNav(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav);
+
+    return () => {
+      window.removeEventListener("scroll", changeNav);
+    };
+  }, []);
+
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-transparent`}
+      className={`${
+        styles.paddingX
+      } w-full flex items-center py-3 fixed top-0 z-20 ${
+        scrollNav ? "bg-primary" : "bg-transparent"
+      }`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
@@ -22,10 +45,6 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt="logo" className="w-12 h-12 object-contain" />
-          {/* <p className="text-white text-[18px] font-bold cursor-pointer flex">
-            Federico Coronel &nbsp;
-            <span className="sm:block hidden">| FrontEnd Developer</span>
-          </p> */}
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((link) => (
@@ -40,8 +59,20 @@ const Navbar = () => {
             </li>
           ))}
           <li className="text-secondary hover:text-white text-[18px] font-medium cursor-pointer flex justify-between gap-3">
-            <a><img src={iconGithub} className="w-7 h-7" /></a>
-            <a><img src={iconLinkedin} className="w-7 h-7" /></a>
+            <a
+              href="https://github.com/fcoronel89"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={iconGithub} className="w-7 h-7" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/fcoronel89"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={iconLinkedin} className="w-7 h-7" />
+            </a>
           </li>
         </ul>
         <div className="sm:hidden flex flex-1 justify-end items-center">

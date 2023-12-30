@@ -1,66 +1,20 @@
-import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
-import { slideIn, staggerContainer, textVariant } from "../utils/motion";
+import { slideIn, } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
+import useContactForm from "../hooks/useContactForm";
 
-// template_zuixbo8
-// service_9njoiu8
-// PVV4Qun76AaKzonbi
 
 const Contact = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
 
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
-
-    setForm({
-      ...form,
-      [name]: value,
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    emailjs.send(
-      'service_9njoiu8',
-      'template_zuixbo8',
-      {
-        from_name: form.name,
-        to_name: "Federico Coronel",
-        from_email: form.email,
-        to_email: "fedec34@gmail.com",
-        message: form.message
-      },
-      'PVV4Qun76AaKzonbi'
-    )
-    .then(() => {
-      setLoading(false);
-      alert("Thank you. I will get back to you as soon as possible.");
-      setForm({
-        name: "",
-        email: "",
-        message: "",
-      })
-    })
-    .catch((error) => {
-      setLoading(false);
-      console.error(error);
-    })
-  }
+  const {
+    register,
+    handleSubmit,
+    errors,
+    loading
+  } = useContactForm();
 
   return (
     <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
@@ -68,46 +22,45 @@ const Contact = () => {
         variants={slideIn("left", "tween", 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
+        <p className={styles.sectionSubText}>Reach me here</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
         <form
-          ref={formRef}
           onSubmit={handleSubmit}
           className='mt-12 flex flex-col gap-8'
         >
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your Name</span>
             <input
+              {...register("fullName")}
               type='text'
-              name='name'
-              value={form.name}
-              onChange={handleChange}
+              name='fullName'
               placeholder="Could you let me know your good name, please?"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
+            {errors.fullName && <p className="text-red-500 mt-2">{errors.fullName.message}</p>}
           </label>
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your email</span>
             <input
+              {...register("email")}
               type='email'
               name='email'
-              value={form.email}
-              onChange={handleChange}
               placeholder="What's the best email address to reach you?"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
+            {errors.email && <p className="text-red-500 mt-2">{errors.email.message}</p>}
           </label>
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your Message</span>
             <textarea
+              {...register("message")}
               rows={7}
               name='message'
-              value={form.message}
-              onChange={handleChange}
               placeholder='Can you share with me what you want to say?'
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
+            {errors.message && <p className="text-red-500 mt-2">{errors.message.message}</p>}
           </label>
 
           <button
@@ -116,6 +69,7 @@ const Contact = () => {
           >
             {loading ? "Sending..." : "Send"}
           </button>
+          {errors.general && <p className="text-red-500 mt-2">{errors.general.message}</p>}
         </form>
       </motion.div>
 

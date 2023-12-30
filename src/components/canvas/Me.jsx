@@ -11,7 +11,7 @@ const Me = () => {
     <mesh>
       <hemisphereLight intensity={0.35} groundColor="black" />
       <pointLight intensity={1} />
-      <primitive object={computer.scene} scale={3.6} position={[0, -4, 0]} />
+      <primitive object={computer.scene} scale={3.2} position={[0, -3.5, 0]} />
     </mesh>
   );
 };
