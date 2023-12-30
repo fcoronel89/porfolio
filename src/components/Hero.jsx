@@ -24,7 +24,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div style={{ height: "60vh" }}>
+      <div className="sm:h-[60vh] h-[70vh]">
       <ComputersChairCanvas />
       </div>
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">

@@ -71,7 +71,7 @@ Passionate about enhancing user experience, I thrive in the dynamic intersection
           ))}
         </div>
       </div>
-      <div className="flex-1 flex justify-start">
+      <div className="flex-1 sm:flex justify-start hidden">
         <div className="w-full relative">
           <MeCanvas />
         </div>
