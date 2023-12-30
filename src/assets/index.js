@@ -1,4 +1,4 @@
-import logo from "./logo-nobg.svg";
+import logo from "./logo.svg";
 import iconGithub from "./icon-github.svg";
 import iconLinkedin from "./icon-linkedin.svg";
 import github from "./github.png";
@@ -11,18 +11,11 @@ import ourmark from "./company/ourmark.jpg";
 import freelance from "./company/freelance.png";
 import travel from "./company/travel.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
-
 export {
   logo,
   github,
   menu,
   close,
-  carrent,
-  jobit,
-  tripguide,
   iconGithub,
   iconLinkedin,
   doppler,
