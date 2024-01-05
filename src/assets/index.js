@@ -11,6 +11,8 @@ import ourmark from "./company/ourmark.jpg";
 import freelance from "./company/freelance.png";
 import travel from "./company/travel.png";
 
+import hairSalon from "./hairsalonapp.png";
+
 export {
   logo,
   github,
@@ -22,5 +24,6 @@ export {
   makingSense,
   ourmark,
   freelance,
-  travel
+  travel,
+  hairSalon
 };
