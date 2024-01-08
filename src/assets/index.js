@@ -12,6 +12,7 @@ import freelance from "./company/freelance.png";
 import travel from "./company/travel.png";
 
 import hairSalon from "./hairsalonapp.png";
+import cryptoProyect from "./cryptoproyect.jpg";
 
 export {
   logo,
@@ -25,5 +26,6 @@ export {
   ourmark,
   freelance,
   travel,
-  hairSalon
+  hairSalon,
+  cryptoProyect,
 };

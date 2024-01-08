@@ -5,6 +5,7 @@ import {
   freelance,
   travel,
   hairSalon,
+  cryptoProyect,
 } from "../assets";
 
 export const navLinks = [
@@ -173,6 +174,24 @@ const projects = [
     ],
     image: hairSalon,
     source_code_link: "https://github.com/fcoronel89/hair-salon",
+  },
+  {
+    name: "Cryptos in Argentina",
+    description:
+      "A static website with the up-to-date information about the crypto market in Argentina.",
+    tags: [
+      "React",
+      "TypeScript",
+      "Javascript",
+      "HTML5",
+      "CSS3",
+      "SASS",
+      "Vercel",
+      "MaterialUi",
+      "MaterialUI-DataGrid",
+    ],
+    image: cryptoProyect,
+    source_code_link: "https://github.com/fcoronel89/crypto-proyect",
   },
 ];
 
