@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close, iconGithub, iconLinkedin } from "../assets";
+import { Link as ScrollLink } from "react-scroll/modules";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -50,12 +51,17 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <li
               key={link.id}
-              className={`${
-                active === link.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(link.title)}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              <ScrollLink
+                activeClass="text-white"
+                className="text-secondary text-[18px] font-medium cursor-pointer hover:text-white"
+                to={link.id}
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                {link.title}
+              </ScrollLink>
             </li>
           ))}
           <li className="text-secondary hover:text-white text-[18px] font-medium cursor-pointer flex justify-between gap-3">

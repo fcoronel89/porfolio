@@ -21,6 +21,11 @@ module.exports = {
       backgroundImage: {
         "hero-pattern": "url('/src/assets/bg2.jpg')",
       },
+      active: {
+        '&.active': {
+          color: "#fff",
+        }
+      }
     },
   },
   plugins: [],

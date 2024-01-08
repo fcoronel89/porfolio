@@ -68,7 +68,7 @@ const ExperienceCard = ({ experience }) => {
 
 const Experience = () => {
   return (
-    <>
+    <div id="work">
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Highlights of my work</p>
         <h2 className={styles.sectionHeadText}>Working Experience.</h2>
@@ -81,8 +81,8 @@ const Experience = () => {
           ))}
         </VerticalTimeline>
       </div>
-    </>
+    </div>
   );
 };
 
-export default SectionWrapper(Experience, "work"); // HOC -> SectionWrapper -> Experience
+export default SectionWrapper(Experience, ""); // HOC -> SectionWrapper -> Experience

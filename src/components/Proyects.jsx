@@ -1,11 +1,11 @@
-import { Tilt } from "react-tilt"
-import { motion } from "framer-motion"
+import { Tilt } from "react-tilt";
+import { motion } from "framer-motion";
 
-import { styles } from "../styles"
-import { github } from "../assets"
-import { SectionWrapper } from "../hoc"
-import { projects } from "../constants"
-import { fadeIn, textVariant } from "../utils/motion"
+import { styles } from "../styles";
+import { github } from "../assets";
+import { SectionWrapper } from "../hoc";
+import { projects } from "../constants";
+import { fadeIn, textVariant } from "../utils/motion";
 
 const ProjectCard = ({
   index,
@@ -15,7 +15,7 @@ const ProjectCard = ({
   image,
   source_code_link,
 }) => {
-  console.log(tags)
+  console.log(tags);
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
@@ -53,23 +53,24 @@ const ProjectCard = ({
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
-          {tags && tags.map((tag, index) => (
-            <span
-              key={`${name}-${tag}-${index}`}
-              className={`text-[14px] bg-[#915eff] color-primary font-medium p-1.5 rounded-[10px]`}
-            >
-              {tag}
-            </span>
-          ))}
+          {tags &&
+            tags.map((tag, index) => (
+              <span
+                key={`${name}-${tag}-${index}`}
+                className={`text-[14px] bg-[#915eff] color-primary font-medium p-1.5 rounded-[10px]`}
+              >
+                {tag}
+              </span>
+            ))}
         </div>
       </Tilt>
     </motion.div>
-  )
+  );
 };
 
 const Proyects = () => {
   return (
-    <>
+    <div id="proyects">
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>My work</p>
         <h2 className={styles.sectionHeadText}>Freelance Projects.</h2>
@@ -80,8 +81,12 @@ const Proyects = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          In my portfolio, I present a curated selection of projects that not only demonstrate my expertise but also provide tangible evidence of my capabilities. 
-          <br />Each project is meticulously described, accompanied by links to relevant code repositories. 
+          In my portfolio, I present a curated selection of projects that not
+          only demonstrate my expertise but also provide tangible evidence of my
+          capabilities.
+          <br />
+          Each project is meticulously described, accompanied by links to
+          relevant code repositories.
         </motion.p>
       </div>
 
@@ -90,8 +95,8 @@ const Proyects = () => {
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default SectionWrapper(Proyects, "proyects") 
+export default SectionWrapper(Proyects, "proyects");

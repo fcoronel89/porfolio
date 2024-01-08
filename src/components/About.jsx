@@ -31,7 +31,7 @@ const About = () => {
     });
   };
   return (
-    <div className="flex justify-center flex-row mb-20">
+    <div className="flex justify-center flex-row mb-20" id="about">
       <div className="flex-1 flex flex-col h-full mt-20">
         <motion.div variants={textVariant()}>
           <p className={styles.sectionSubText}>Introduction</p>
@@ -80,4 +80,4 @@ Passionate about enhancing user experience, I thrive in the dynamic intersection
   );
 };
 
-export default SectionWrapper(About, "about");
+export default SectionWrapper(About, "");
