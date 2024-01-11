@@ -13,6 +13,7 @@ import travel from "./company/travel.png";
 
 import hairSalon from "./hairsalonapp.png";
 import cryptoProyect from "./cryptoproyect.jpg";
+import blogProyect from "./blog-proyect.jpg";
 
 export {
   logo,
@@ -28,4 +29,5 @@ export {
   travel,
   hairSalon,
   cryptoProyect,
+  blogProyect
 };

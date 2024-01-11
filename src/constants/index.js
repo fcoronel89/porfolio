@@ -6,6 +6,7 @@ import {
   travel,
   hairSalon,
   cryptoProyect,
+  blogProyect
 } from "../assets";
 
 export const navLinks = [
@@ -192,6 +193,26 @@ const projects = [
     ],
     image: cryptoProyect,
     source_code_link: "https://github.com/fcoronel89/crypto-proyect",
+  },
+  {
+    name: "Argentina Magica",
+    description:
+      "A travel blog with the information about the travel destinations in Argentina in differents provinces.",
+    tags: [
+      "React",
+      "Javascript",
+      "NodeJS",
+      "ExpressJS",
+      "MongoDB",
+      "JWToken",
+      "HTML5",
+      "CSS3",
+      "SASS",
+      "Render",
+      "MaterialUi",
+    ],
+    image: blogProyect,
+    source_code_link: "https://github.com/fcoronel89/blog",
   },
 ];
 
